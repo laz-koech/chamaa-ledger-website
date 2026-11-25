@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Umoja Chama Ledger | Member Records &amp; Loan Portal</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="index.html" class="brand">Umoja<span>Chama</span></a>
+        <button
+          class="nav-toggle"
+          id="navToggle"
+          aria-label="Toggle navigation"
+          aria-expanded="false"
+        >
+          &#9776;
+        </button>
+        <nav class="main-nav" id="mainNav" aria-label="Primary Navigation">
+          <ul class="nav-list">
+            <li><a href="index.html" class="active">Overview</a></li>
+            <li><a href="members.html">Member Records</a></li>
+            <li><a href="loans.html">Loan Calculator &amp; Apply</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container page-grid">
+      <div class="main-content">
+        <section class="hero" aria-labelledby="hero-heading">
+          <div class="hero-text">
+            <span class="badge">Transparent Group Finance</span>
+            <h1 id="hero-heading">
+              Simple Member Records &amp; Fair Chama Loans
+            </h1>
+            <p>
+              Track monthly member shares, verify M-Pesa contribution records,
+              and calculate instant loan eligibility based on each member's
+              accumulated savings.
+            </p>
+            <div class="hero-actions">
+              <a href="members.html" class="btn btn-primary"
+                >Manage Member Records</a
+              >
+              <a href="loans.html" class="btn btn-secondary"
+                >Open Loan Calculator</a
+              >
+            </div>
+          </div>
+          <div class="hero-media">
+            <img
+              src="images/chama-hero.jpg"
+              alt="Small investment group reviewing monthly savings and loan records together"
+            />
+          </div>
+        </section>
+
+        <section class="features-section" aria-labelledby="summary-heading">
+          <h2 id="summary-heading">Live Group Fund Snapshot</h2>
+          <div class="card-grid">
+            <article class="card stat-card">
+              <h3>Active Members</h3>
+              <p class="stat-value" id="homeMemberCount">0</p>
+              <p class="stat-note">Registered contributors in good standing</p>
+            </article>
+            <article class="card stat-card">
+              <h3>Total Group Savings</h3>
+              <p class="stat-value" id="homeTotalSavings">KES 0</p>
+              <p class="stat-note">Cumulative member shares &amp; deposits</p>
+            </article>
+            <article class="card stat-card">
+              <h3>Max Single Loan Pool</h3>
+              <p class="stat-value" id="homeLoanCapacity">KES 0</p>
+              <p class="stat-note">Available lending liquidity (80% of pool)</p>
+            </article>
+          </div>
+        </section>
+      </div>
+
+      <aside class="sidebar" aria-label="Chama Lending Rules and Schedule">
+        <section class="panel">
+          <h2>Chama Lending Policy</h2>
+          <ul class="specs-list">
+            <li>
+              <span>Loan Limit:</span>
+              <span>Up to 3&times; Member Savings</span>
+            </li>
+            <li>
+              <span>Interest Rate:</span> <span>10% Reducing / Flat</span>
+            </li>
+            <li><span>Repayment Period:</span> <span>1 – 12 Months</span></li>
+            <li><span>Monthly Share:</span> <span>Min. KES 2,000</span></li>
+          </ul>
+        </section>
+        <section class="panel">
+          <h2>Next Table Banking</h2>
+          <p>
+            Monthly reconciliation holds every
+            <strong>first Saturday of the month</strong> at 10:00 AM. Ensure
+            M-Pesa contributions are logged before the meeting.
+          </p>
+          <a href="loans.html" class="btn btn-primary btn-full"
+            >Estimate a Loan</a
+          >
+        </section>
+      </aside>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>
+          &copy; <span id="year">2026</span> Umoja Chama Welfare &amp;
+          Investment Group.
+        </p>
+        <p>Treasurer Desk &bull; treasurer@umojachama.example</p>
+      </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>

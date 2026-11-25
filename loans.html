@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Umoja Chama Ledger | Loan Calculator &amp; Request</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand">Umoja<span>Chama</span></a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+        &#9776;
+      </button>
+      <nav class="main-nav" id="mainNav" aria-label="Primary Navigation">
+        <ul class="nav-list">
+          <li><a href="index.html">Overview</a></li>
+          <li><a href="members.html">Member Records</a></li>
+          <li><a href="loans.html" class="active">Loan Calculator &amp; Apply</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container page-grid">
+    <div class="main-content">
+      <section aria-labelledby="loan-heading">
+        <h1 id="loan-heading">Chama Loan Calculator &amp; Request Form</h1>
+        <p class="lead">
+          Select a registered member to check their <strong>3&times; savings loan limit</strong>,
+          calculate monthly installments, and submit a loan request for committee approval.
+        </p>
+
+        <form id="loanForm" class="inquiry-form" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="applicantSelect">Select Registered Member *</label>
+              <select id="applicantSelect" name="applicantSelect">
+                <option value="">-- Choose a member --</option>
+              </select>
+              <small class="error-msg" id="applicantError" aria-live="polite"></small>
+            </div>
+
+            <div class="form-group">
+              <label for="memberEligibility">Maximum Eligible Loan (3&times; Savings)</label>
+              <input type="text" id="memberEligibility" readonly value="KES 0" />
+              <small class="hint-text" id="memberSavingsHint">Select a member to view savings.</small>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="loanAmount">Requested Loan Amount (KES) *</label>
+              <input
+                type="number"
+                id="loanAmount"
+                name="loanAmount"
+                min="1000"
+                step="500"
+                placeholder="e.g., 20000"
+              />
+              <small class="error-msg" id="loanAmountError" aria-live="polite"></small>
+            </div>
+
+            <div class="form-group">
+              <label for="repaymentMonths">Repayment Period (Months) *</label>
+              <select id="repaymentMonths" name="repaymentMonths">
+                <option value="3">3 Months</option>
+                <option value="6" selected>6 Months</option>
+                <option value="9">9 Months</option>
+                <option value="12">12 Months</option>
+              </select>
+              <small class="error-msg" id="monthsError" aria-live="polite"></small>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="interestType">Interest Method *</label>
+              <select id="interestType" name="interestType">
+                <option value="flat">Flat Rate (10% Total Interest)</option>
+                <option value="reducing">Reducing Balance (1.5% Monthly)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="guarantorName">Co-Member Guarantor Name *</label>
+              <input
+                type="text"
+                id="guarantorName"
+                name="guarantorName"
+                placeholder="e.g., Mary Njeri"
+              />
+              <small class="error-msg" id="guarantorError" aria-live="polite"></small>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="loanPurpose">Purpose of Loan *</label>
+            <textarea
+              id="loanPurpose"
+              name="loanPurpose"
+              rows="3"
+              placeholder="Briefly state how the funds will be used (e.g., business stock, school fees)..."
+            ></textarea>
+            <small class="error-msg" id="purposeError" aria-live="polite"></small>
+          </div>
+
+          <div class="form-group checkbox-group">
+            <input type="checkbox" id="loanAgree" name="loanAgree" />
+            <label for="loanAgree">
+              I agree to abide by the Chama loan recovery bylaws and guarantor terms. *
+            </label>
+            <small class="error-msg" id="agreeError" aria-live="polite"></small>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Submit Loan Request</button>
+            <button type="reset" class="btn btn-secondary" id="loanResetBtn">Reset</button>
+          </div>
+        </form>
+
+        <div id="loanSummaryBox" class="submission-box hidden" role="status" aria-live="polite"></div>
+      </section>
+    </div>
+
+    <aside class="sidebar" aria-label="Live Repayment Breakdown">
+      <section class="panel breakdown-panel">
+        <h2>Live Repayment Estimate</h2>
+        <ul class="specs-list">
+          <li><span>Principal:</span> <strong id="calcPrincipal">KES 0</strong></li>
+          <li><span>Total Interest:</span> <strong id="calcInterest">KES 0</strong></li>
+          <li><span>Total Repayable:</span> <strong id="calcTotal">KES 0</strong></li>
+          <li><span>Monthly Installment:</span> <strong id="calcMonthly">KES 0</strong></li>
+        </ul>
+      </section>
+      <section class="panel">
+        <h2>Guarantor Requirement</h2>
+        <p>
+          Any loan exceeding 1&times; a member's savings must list an active Chama member as a
+          guarantor before disbursement.
+        </p>
+      </section>
+    </aside>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; <span id="year">2026</span> Umoja Chama Welfare &amp; Investment Group.</p>
+      <p>Treasurer Desk &bull; treasurer@umojachama.example</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

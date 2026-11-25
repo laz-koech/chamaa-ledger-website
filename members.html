@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Umoja Chama Ledger | Member Records</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="index.html" class="brand">Umoja<span>Chama</span></a>
+        <button
+          class="nav-toggle"
+          id="navToggle"
+          aria-label="Toggle navigation"
+          aria-expanded="false"
+        >
+          &#9776;
+        </button>
+        <nav class="main-nav" id="mainNav" aria-label="Primary Navigation">
+          <ul class="nav-list">
+            <li><a href="index.html">Overview</a></li>
+            <li><a href="members.html" class="active">Member Records</a></li>
+            <li><a href="loans.html">Loan Calculator &amp; Apply</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container page-grid">
+      <div class="main-content">
+        <section aria-labelledby="record-heading">
+          <h1 id="record-heading">
+            Member Savings &amp; Contribution Register
+          </h1>
+          <p class="lead">
+            Add new members or log additional monthly deposits. Every member's
+            maximum loan limit automatically updates at
+            <strong>3&times; their total savings</strong>.
+          </p>
+
+          <form id="memberForm" class="inquiry-form" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="memberNo">Member Number *</label>
+                <input type="text" id="memberNo" placeholder="e.g., CHM-005" />
+                <small
+                  class="error-msg"
+                  id="memberNoError"
+                  aria-live="polite"
+                ></small>
+              </div>
+
+              <div class="form-group">
+                <label for="memberName">Full Name *</label>
+                <input
+                  type="text"
+                  id="memberName"
+                  placeholder="e.g., Peter Kamau"
+                />
+                <small
+                  class="error-msg"
+                  id="memberNameError"
+                  aria-live="polite"
+                ></small>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="memberPhone">Phone Number *</label>
+                <input
+                  type="tel"
+                  id="memberPhone"
+                  placeholder="e.g., 0722112233"
+                />
+                <small
+                  class="error-msg"
+                  id="memberPhoneError"
+                  aria-live="polite"
+                ></small>
+              </div>
+
+              <div class="form-group">
+                <label for="savingsAmount">Total / Added Savings (KES) *</label>
+                <input
+                  type="number"
+                  id="savingsAmount"
+                  min="500"
+                  step="100"
+                  placeholder="e.g., 15000"
+                />
+                <small
+                  class="error-msg"
+                  id="savingsAmountError"
+                  aria-live="polite"
+                ></small>
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary">
+                Save Member Record
+              </button>
+              <button
+                type="reset"
+                class="btn btn-secondary"
+                id="memberResetBtn"
+              >
+                Clear
+              </button>
+            </div>
+          </form>
+        </section>
+
+        <section aria-labelledby="ledger-table-heading">
+          <div class="table-header-bar">
+            <h2 id="ledger-table-heading">Registered Members Ledger</h2>
+            <input
+              type="search"
+              id="memberSearch"
+              class="search-input"
+              placeholder="Search by name or member no..."
+              aria-label="Search members"
+            />
+          </div>
+
+          <div class="table-wrapper">
+            <table class="ledger-table">
+              <thead>
+                <tr>
+                  <th>Member No.</th>
+                  <th>Full Name</th>
+                  <th>Phone</th>
+                  <th>Total Savings (KES)</th>
+                  <th>Max Loan (3&times;)</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="memberTableBody">
+                <!-- Populated dynamically by JavaScript -->
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </div>
+
+      <aside class="sidebar" aria-label="Ledger Totals">
+        <section class="panel">
+          <h2>Ledger Summary</h2>
+          <ul class="specs-list">
+            <li>
+              <span>Total Members:</span>
+              <strong id="asideMemberCount">0</strong>
+            </li>
+            <li>
+              <span>Total Savings:</span>
+              <strong id="asideTotalSavings">KES 0</strong>
+            </li>
+            <li>
+              <span>Total Borrowing Power:</span>
+              <strong id="asideBorrowPower">KES 0</strong>
+            </li>
+          </ul>
+        </section>
+        <section class="panel">
+          <h2>Quick Tip</h2>
+          <p>
+            Need to top up an existing member's savings? Enter their exact
+            <strong>Member Number</strong>
+            above and the new deposit will be added to their existing balance.
+          </p>
+        </section>
+      </aside>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>
+          &copy; <span id="year">2026</span> Umoja Chama Welfare &amp;
+          Investment Group.
+        </p>
+        <p>Treasurer Desk &bull; treasurer@umojachama.example</p>
+      </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>
